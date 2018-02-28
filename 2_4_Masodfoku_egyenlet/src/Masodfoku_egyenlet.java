@@ -44,43 +44,43 @@ public class Masodfoku_egyenlet {
 		b = Double.parseDouble(eredmenytomb[1]);
 		c = Double.parseDouble(eredmenytomb[2]);		
 
-	    if (a == 0) {
-	    	megoldasok_szama = 0;
-	    }
-	    else {
-	    	x2 = 2 * a;
-	    	diszkriminans = b * b - 4 * a * c;
+		if (a == 0) {
+			megoldasok_szama = 0;
+		}
+		else {
+			x2 = 2 * a;
+			diszkriminans = b * b - 4 * a * c;
 
-	    	if (diszkriminans > 0) {
-	    		diszkriminans = Math.sqrt(diszkriminans);
-	    		x1 = (-b + diszkriminans) / x2;
-	    		x2 = (-b - diszkriminans) / x2;
-	    		megoldasok_szama = 2;
-	    	}
-	    	else if (diszkriminans == 0) {
-	    		x1 = -b / x2;
-	    		megoldasok_szama = 1;
-	    	}
-	    	else {
-	    		megoldasok_szama = 0;
-	    	}			
+			if (diszkriminans > 0) {
+				diszkriminans = Math.sqrt(diszkriminans);
+				x1 = (-b + diszkriminans) / x2;
+				x2 = (-b - diszkriminans) / x2;
+				megoldasok_szama = 2;
+			}
+			else if (diszkriminans == 0) {
+				x1 = -b / x2;
+				megoldasok_szama = 1;
+			}
+			else {
+				megoldasok_szama = 0;
+			}			
 		}		
 		
-	    switch(megoldasok_szama)
-	    {
-	    	case 2:
-	    			System.out.println("2 megoldas van.");
-	                System.out.println("x1= " + x1 + ", x2= " + x2);
-	                break;
+		switch(megoldasok_szama)
+		{
+			case 2:
+				System.out.println("2 megoldas van.");
+				System.out.println("x1= " + x1 + ", x2= " + x2);
+				break;
 
-	    	case 1:
-	    			System.out.println("1 megoldas van.\nx= " + x1);
-	    			break;
+			case 1:
+				System.out.println("1 megoldas van.\nx= " + x1);
+				break;
 
-	    	default:
-	    			System.out.println("Nincs megoldas a valos szamok halmazan.");
-	    }
-	    
-	    bemenet.close();
+			default:
+				System.out.println("Nincs megoldas a valos szamok halmazan.");
+		}
+		
+		bemenet.close();
 	}
 }
