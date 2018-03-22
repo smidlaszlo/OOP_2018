@@ -5,12 +5,17 @@ amelyben beolvas n darab könyvet egy tömbbe!
 - Írja ki a leghosszabb páros oldalszámú könyv adatait!
 - Írja ki, hogy melyik szerzõnek hány darab könyve jelent meg!
  */
+/* Tag 3KulonbozoCsomagok
+Ugyanezeket a feladatokat oldja meg úgy,
+hogy a futtatható osztályt másik csomagban definiálja!
+ */
 
-package sajat;
+package masik;
 
 //import java.util.Random;
 //import java.util.Scanner;
 import java.util.*;
+import sajat.Konyv;
 
 public class Konyvtar {
 	public static void main(String[] args) {
