@@ -2,7 +2,8 @@
 Ugyanebben a csomagban készítsen egy futtatható osztályt,
 amelyben beolvas n darab könyvet egy tömbbe!
 - Írja ki a leghosszabb könyv adatait!
-- Írja ki a leghosszabb páros oldalszámú könyv adatait!
+- Gyûjtse ki egy tömbbe a páros oldalszámú könyveket
+és írja ki a leghosszabb páros oldalszámú könyv adatait!
 - Írja ki, hogy melyik szerzõnek hány darab könyve jelent meg!
  */
 /* Tag 3KulonbozoCsomagok
@@ -85,6 +86,43 @@ public class Konyvtar {
 
 		System.out.println("A leghosszabb paros oldalszamu konyv adatai:");
 		System.out.println(leghosszabb_paros_oldalszamu_konyv);
+				
+		//Gyûjtse ki egy tömbbe a páros oldalszámú könyveket
+		//és írja ki a leghosszabb páros oldalszámú könyv adatait!
+		int paros_oldalszamuak_darabszama = 0;
+
+		//parosok megszamolasa
+		for (Konyv konyv : konyvek) {
+			if (konyv.oldalszamParosE()) {
+				paros_oldalszamuak_darabszama++;
+			}
+		}
+		
+		//tomb letrehozasa
+		Konyv paros_oldalszamu_konyvek[] = new Konyv[paros_oldalszamuak_darabszama];
+		int paros_konyv_indexe = 0;
+		
+		//tomb feltoltese
+		for (Konyv konyv : konyvek) {
+			if (konyv.oldalszamParosE()) {
+				paros_oldalszamu_konyvek[paros_konyv_indexe] = konyv;
+				paros_konyv_indexe++;
+			}
+		}
+
+		//leghosszabb paros megkeresese
+		leghosszabb_paros_oldalszamu_konyv = null;
+		
+		for (Konyv konyv : paros_oldalszamu_konyvek) {
+			if (leghosszabb_paros_oldalszamu_konyv == null) {
+				leghosszabb_paros_oldalszamu_konyv = konyv;
+			} else {
+				leghosszabb_paros_oldalszamu_konyv = Konyv.hosszabbKonyv(konyv, leghosszabb_paros_oldalszamu_konyv);
+			}						
+		}
+		
+		//System.out.println("A leghosszabb paros oldalszamu konyv adatai:");
+		//System.out.println(leghosszabb_paros_oldalszamu_konyv);		
 		
 		//Írja ki, hogy melyik szerzõnek hány darab könyve jelent meg!
 		int darabszamok[] = new int[konyvek.length];
