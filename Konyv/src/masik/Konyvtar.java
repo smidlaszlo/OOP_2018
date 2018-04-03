@@ -140,7 +140,7 @@ public class Konyvtar {
 					}				
 				}
 				
-				System.out.println(szerzo + "konyveinek darabszama: " + darabszamok[i]);			
+				System.out.println(szerzo + " konyveinek darabszama: " + darabszamok[i]);			
 			}
 		}		
 		
