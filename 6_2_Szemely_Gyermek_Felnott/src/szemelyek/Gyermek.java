@@ -11,7 +11,7 @@ Metódusaik:
 package szemelyek;
 
 public class Gyermek extends Szemely {
-	String iskola;
+	private String iskola;
 
 	public Gyermek(String nev, int kor, String iskola) {
 		super(nev, kor);

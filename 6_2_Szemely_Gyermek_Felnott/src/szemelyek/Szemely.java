@@ -10,8 +10,8 @@ Metódusai:
 package szemelyek;
 
 public class Szemely {
-	String nev;
-	int kor;	
+	private String nev;
+	private int kor;	
 	
 	public Szemely(String nev, int kor) {
 		this.nev = nev;

@@ -41,6 +41,7 @@ Használja a minimum kiválasztásos rendezõ eljárást!
 
 package szemelyek.teszt;
 
+import java.util.Random;
 import java.util.Scanner;
 
 //import szemelyek.Szemely;
@@ -144,18 +145,72 @@ public class SzemelyTeszt {
 		System.out.println(masodik_szemely instanceof Alkalmazott);
 
 		System.out.println(masodik_szemely);
+		System.out.println();
+
+		//Hozzon létre egy n elemû Személy tömböt!
+		System.out.println("Hany szemelyt szeretne letrehozni?");
+		System.out.println("darabszam: ");
+		int szemelyek_szama = beolvasas.nextInt();
+		Szemely szemelyek[] = new Szemely[szemelyek_szama];
+
+		System.out.println();
+		System.out.println("A letrehozott " + szemelyek_szama + " db. szemely adatai:");
+		
+		//Az adatok beolvasásakor dõljön el,
+		//hogy az adott személy Gyermek, Felnõtt, vagy Alkalmazott!
+		Random veletlenszamobjektum = new Random();
+		
+		for (int i = 0; i < szemelyek.length; i++) {
+			nev = "Szemely" + (i + 1);
+			kor = veletlenszamobjektum.nextInt(Alkalmazott.getNyugdijkorhatar());
+
+			if (kor < 18) {
+				iskola_munkahely = "Iskola" + (i + 1);
+				szemelyek[i] = new Gyermek(nev, kor, iskola_munkahely);
+			} else {
+				switch (veletlenszamobjektum.nextInt(2)) {
+					case 0:
+						//Felnott
+						szemelyek[i] = new Felnott(nev, kor, "null");
+						
+						break;
+						
+					case 1:
+						//Alkalmazott
+						iskola_munkahely = "Munkahely" + (i + 1);
+						long fizetes = veletlenszamobjektum.nextInt(1000000);
+						szemelyek[i] = new Alkalmazott(nev, kor, iskola_munkahely, fizetes);
+						
+						break;
+				}
 				
+			}			
+			System.out.println(szemelyek[i]);
+		}
+
+		//Majd életkoruk szerint növekvõen rendezve írja ki az adataikat!
+		//Használja a minimum kiválasztásos rendezõ eljárást!
+
+		for (int i = 0; i < szemelyek.length - 1; i++) {
+			int min_eletkor_index = i;
+			for (int j = i + 1; j < szemelyek.length; j++) {
+				if (szemelyek[j].getKor() < szemelyek[min_eletkor_index].getKor()) {
+					min_eletkor_index = j;
+				}
+			}
+
+			Szemely ideiglenes = szemelyek[min_eletkor_index];
+			szemelyek[min_eletkor_index] = szemelyek[i];
+			szemelyek[i] = ideiglenes;
+		}
+
+		System.out.println();
+		System.out.println("Az eletkor szerint rendezett szemelyek adatai:");
+		for (Szemely szemely : szemelyek) {
+			System.out.println(szemely);
+		}
+		
 		beolvasas.close();
-
-/*
-Hozzon létre egy n elemû Személy tömböt!
-
-Az adatok beolvasásakor dõljön el,
-hogy az adott személy Gyermek, Felnõtt, vagy Alkalmazott!
-
-Majd életkoruk szerint növekvõen rendezve írja ki az adataikat!
-Használja a minimum kiválasztásos rendezõ eljárást!
- */
 	
 	}
 

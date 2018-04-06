@@ -11,8 +11,8 @@ Metódusai:
 package szemelyek;
 
 public class Alkalmazott extends Felnott {
-	static int nyugdijkorhatar = 65;
-	long fizetes;
+	private static int nyugdijkorhatar = 65;
+	private long fizetes;
 
 	public Alkalmazott(String nev, int kor, String munkahely, long fizetes) {
 		super(nev, kor, munkahely);
@@ -34,5 +34,8 @@ public class Alkalmazott extends Felnott {
 				+ "]";
 	}
 
+	public static int getNyugdijkorhatar() {
+		return nyugdijkorhatar;
+	}	
 
 }
