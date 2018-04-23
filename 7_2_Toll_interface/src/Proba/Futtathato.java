@@ -61,6 +61,7 @@ public class Futtathato {
 	}
 
 	static void setAlapertelmezettSzin(ISzinezheto obj) {
-		obj.setSzin(obj.alapertelmezettSzin);
+		//obj.setSzin(obj.alapertelmezettSzin);
+		obj.setSzin(ISzinezheto.alapertelmezettSzin);
 	}
 }
