@@ -48,6 +48,10 @@ public class Konyv {
 		this.szerzo = szerzo;
 		//this.megjelenes_eve = megjelenes_eve;
 		this.megjelenes_eve = LocalDate.now().getYear();
+
+		if (ar < 0 || oldalszam < 0)
+			throw new IllegalArgumentException();			
+
 		this.ar = ar;
 		this.oldalszam = oldalszam;
 	}	
